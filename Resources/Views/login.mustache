@@ -1,0 +1,32 @@
+{{< layout }}
+
+    {{$ content }}
+
+        <div id="login">
+            <form name="f">
+                {{# showEmail }}
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email">
+                {{/ showEmail }}
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password"><br/>
+                {{# showEmail }}
+                <input value="Register" type="submit" name="do_registration">
+                {{/ showEmail }}
+                {{^ showEmail }}
+                <input value="Login" type="submit" name="do_login">
+                {{/ showEmail }}
+                <div id="errormsg"></div>
+            </form>
+            <script>
+                $(function() {
+                    $("form[name=f]").submit(login);
+                });
+            </script>
+        </div>
+
+    {{/ content }}
+
+{{/ layout }}

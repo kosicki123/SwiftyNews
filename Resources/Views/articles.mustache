@@ -1,0 +1,23 @@
+{{< layout }}
+
+    {{$ content }}
+
+        <section id="newslist">
+            {{# articles }}
+              <article data-news-id="{{ .id }}">
+                 <a href="#up" class="uparrow">&#9650;</a> 
+                 <h2><a href="{{ .url }}" rel="nofollow">{{ .title }}</a></h2>
+                 <address>at esapi.intellexer.com</address>
+                 <p>
+                    {{ .up }} points by 
+                    <username><a href="/user/johnsmith">johnsmith</a></username>
+                    1 day ago | 
+                    <a href="/news/1630">0 comments</a>
+                 </p>
+              </article>
+            {{/ articles }}
+        </section>
+
+    {{/ content }}
+
+{{/ layout }}

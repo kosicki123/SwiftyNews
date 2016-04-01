@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    
+    {{>head}}
+
+    <body>
+        <div id="container">
+            <header>
+                <h1><a href="/">Pomo.News</a></h1>
+                <nav><a href="/">top</a>
+                    <a href="/new/0">new</a>
+                    <a href="/submit">submit</a>
+                </nav>
+                {{# params.username }}
+                    <nav id="account"><a href="/user/{{ params.userId }}">{{ params.username }} ({{ params.karma }})</a> | <a href="/logout">logout</a></nav>
+                {{/ params.username }}
+
+                {{^ params.username }}
+                    <nav id="account"><a href="/login">login</a> | <a href="/register">register</a></nav>
+                {{/ params.username }}
+            </header>
+            
+            {{# message }}
+            <div id="message" class="{{ message.type }}">
+                {{ message.text }}
+            </div>
+            {{/ message }}
+            
+            <div id="content">
+                {{$ content }}
+                    No content
+                {{/ content }}
+            </div>
+            <footer>
+                <a href="https://github.com/bontoJR/PomoNews">source code</a> | 
+                <a href="/rss">rss feed</a> | <a href="http://twitter.com/bontoJR">twitter</a>
+            </footer>
+        </div>
+    </body>
+</html>

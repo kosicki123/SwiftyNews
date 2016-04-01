@@ -1,0 +1,12 @@
+<header>
+    <h1><a href="/">Pomo.News</a></h1>
+    <nav><a href="/">top</a>
+        <a href="/new/0">new</a>
+        <a href="/submit">submit</a>
+    </nav>
+    {% if params.username %}
+        <nav id="account"><a href="/user/{{ params.userId }}">{{ params.username }} ({{ params.karma }})</a> | <a href="/logout">logout</a></nav>
+    {% else %}
+        <nav id="account"><a href="/login">login</a> | <a href="/register">register</a></nav>
+    {% endif %}
+</header>
