@@ -7,7 +7,7 @@ enum Vote: String {
     case Down = "down"
 }
 
-class LinkController: Controller {
+class LinkController {
     required init(application: Application) {
         Log.info("Link controller created")
     }
@@ -29,28 +29,6 @@ class LinkController: Controller {
         return Json([
             "controller": "UserController.store"
         ])
-    }
-    
-    /**
-        Since item is of type User, 
-        only instances of user will be received
-    */
-    func show(request: Request, item user: User) throws -> ResponseRepresentable {
-        //User can be used like JSON with JsonRepresentable
-        return Json([
-            "controller": "UserController.show",
-            "user": user
-        ])
-    }
-    
-    func update(request: Request, item user: User) throws -> ResponseRepresentable {
-        //User is JsonRepresentable
-        return user.makeJson()
-    }
-    
-    func destroy(request: Request, item user: User) throws -> ResponseRepresentable {
-        //User is ResponseRepresentable by proxy of JsonRepresentable
-        return user
     }
 
     /// Create a new instance.

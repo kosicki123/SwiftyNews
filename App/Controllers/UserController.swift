@@ -2,7 +2,7 @@ import Vapor
 import Redbird
 import Foundation
 
-class UserController: Controller {
+class UserController {
     required init(application: Application) {
         Log.info("User controller created")
     }
@@ -19,28 +19,6 @@ class UserController: Controller {
         ])
     }
     
-    /**
-    	Since item is of type User, 
-    	only instances of user will be received
-    */
-    func show(request: Request, item user: User) throws -> ResponseRepresentable {
-        //User can be used like JSON with JsonRepresentable
-        return Json([
-            "controller": "UserController.show",
-            "user": user
-        ])
-    }
-    
-    func update(request: Request, item user: User) throws -> ResponseRepresentable {
-        //User is JsonRepresentable
-        return user.makeJson()
-    }
-    
-    func destroy(request: Request, item user: User) throws -> ResponseRepresentable {
-        //User is ResponseRepresentable by proxy of JsonRepresentable
-        return user
-    }
-
     /// Login
     func login(request: Request) throws -> ResponseRepresentable {
         // Perform login action
